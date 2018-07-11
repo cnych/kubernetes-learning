@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: testcm4-pod
+spec:
+  containers:
+  - name: testcm4
+    image: busybox
+    command: ["/bin/sh", "-c", "cat /etc/config/redis.conf"]
+    volumeMounts:
+    - name: config-volume
+      mountPath: /etc/config
+  volumes:
+  - name: config-volume
+    configMap:
+     name: cm-demo3

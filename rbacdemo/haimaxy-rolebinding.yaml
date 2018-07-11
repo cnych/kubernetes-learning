@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: haimaxy-rolebinding
+  namespace: kube-system
+subjects:
+- kind: User
+  name: haimaxy
+  apiGroup: ""
+roleRef:
+  kind: Role
+  name: haimaxy-role
+  apiGroup: ""

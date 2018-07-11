@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: testcm5-pod
+spec:
+  containers:
+  - name: testcm5
+    image: busybox
+    command: ["/bin/sh", "-c", "cat /etc/config/path/to/mysql.conf"]
+    volumeMounts:
+    - name: config-volume
+      mountPath: /etc/config
+  volumes:
+  - name: config-volume
+    configMap:
+     name: cm-demo2
+     items:
+     - key: mysql.conf
+       path: path/to/mysql.conf

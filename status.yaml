@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kubernetes.io/config.hash: 4a93efc59bf8ea557fc9466a2d8be4b9
+    kubernetes.io/config.mirror: 4a93efc59bf8ea557fc9466a2d8be4b9
+    kubernetes.io/config.seen: 2018-05-23T04:49:22.749711053+08:00
+    kubernetes.io/config.source: file
+  creationTimestamp: 2018-05-22T20:49:22Z
+  labels:
+    app: static
+  name: static-pod2-master
+  namespace: default
+  resourceVersion: "636406"
+  selfLink: /api/v1/namespaces/default/pods/static-pod2-master
+  uid: 9b48be7d-5e01-11e8-a101-525400db4df7
+spec:
+  containers:
+  - image: nginx
+    imagePullPolicy: Always
+    name: web
+    ports:
+    - containerPort: 80
+      name: webport
+      protocol: TCP
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+  dnsPolicy: ClusterFirst
+  nodeName: master
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    operator: Exists
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: 2018-05-22T20:49:22Z
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: 2018-05-22T21:03:49Z
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: 2018-05-22T20:49:22Z
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://83006318709f6d1f63c9a1c783b3d174aacc1ea2c4029c4cc4af3e51fa07c967
+    image: nginx:latest
+    imageID: docker-pullable://nginx@sha256:0fb320e2a1b1620b4905facb3447e3d84ad36da0b2c8aa8fe3a5a81d1187b884
+    lastState: {}
+    name: web
+    ready: true
+    restartCount: 0
+    state:
+      running:
+        startedAt: 2018-05-22T21:03:48Z
+  hostIP: 10.151.30.57
+  phase: Running
+  podIP: 10.244.0.4
+  qosClass: BestEffort
+  startTime: 2018-05-22T20:49:22Z

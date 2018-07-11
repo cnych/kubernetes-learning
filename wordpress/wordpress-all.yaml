@@ -1,0 +1,124 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: mysql-deploy
+  namespace: blog
+  labels:
+    app: mysql
+spec:
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec: 
+      containers:
+      - name: mysql
+        image: mysql:5.7
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3306
+          name: dbport
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: rootPassw0rd
+        - name: MYSQL_DATABASE
+          value: wordpress
+        - name: MYSQL_USER
+          value: wordpress
+        - name: MYSQL_PASSWORD
+          value: wordpress
+        volumeMounts:
+        - name: db
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: db
+        hostPath:
+          path: /var/lib/mysql
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  namespace: blog
+spec:
+  selector:
+    app: mysql
+  ports:
+  - name: mysqlport
+    protocol: TCP
+    port: 3306
+    targetPort: dbport
+
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: wordpress-deploy
+  namespace: blog
+  labels:
+    app: wordpress
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      initContainers:
+      - name: init-db
+        image: busybox
+        imagePullPolicy: IfNotPresent
+        command: ['sh', '-c', 'until nslookup mysql;do echo waiting for mysql service; sleep 2; done;']
+      containers:
+      - name: wordpress
+        image: wordpress
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: wdport
+          containerPort: 80
+        livenessProbe:
+          tcpSocket:
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 3
+        readinessProbe:
+          tcpSocket:
+            port: 80
+          initialDelaySeconds: 15
+          periodSeconds: 10
+        resources:
+          limits:
+            cpu: 200m
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: mysql:3306
+        - name: WORDPRESS_DB_USER
+          value: wordpress
+        - name: WORDPRESS_DB_PASSWORD
+          value: wordpress
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress
+  namespace: blog
+spec:
+  selector:
+    app: wordpress
+  type: NodePort
+  ports:
+  - name: wordpressport
+    protocol: TCP
+    port: 80
+    nodePort: 31306
+    targetPort: wdport

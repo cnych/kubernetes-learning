@@ -1,0 +1,28 @@
+{
+    "apiVersion": "v1",
+    "kind": "Pod",
+    "metadata": {
+        "name": "haimaxy-pod",
+        "labels": {
+            "app": "web"
+        }
+    },
+    "spec": {
+        "containers": [
+            {
+                "name": "frontend",
+                "image": "nginx",
+                "ports": [
+                    {"containerPort": 80}
+                ]
+            },
+            {
+                "name": "demo",
+                "image": "demo",
+                "ports": [
+                    {"containerPort": 5000}
+                ]
+            }
+        ]
+    }
+}

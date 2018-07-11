@@ -1,0 +1,43 @@
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: hpa-demo
+  labels:
+    app: hpa
+spec:
+  revisionHistoryLimit: 15
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        resources:
+          requests:
+            cpu: 100m
+        ports:
+        - containerPort: 80
+
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: hpa-demo
+  namespace: default
+spec:
+  maxReplicas: 10
+  minReplicas: 1
+  scaleTargetRef:
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    name: hpa-demo
+  targetCPUUtilizationPercentage: 5

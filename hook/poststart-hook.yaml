@@ -1,0 +1,19 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hook-demo1
+  labels:
+    app: hook
+spec:
+  containers:
+  - name: hook-demo1
+    image: nginx
+    ports:
+    - name: webport
+      containerPort: 80
+    lifecycle:
+      postStart:
+        exec:
+          command: ["/bin/sh", "-c", "echo Hello from the postStart Handler > /usr/share/message"]
+        

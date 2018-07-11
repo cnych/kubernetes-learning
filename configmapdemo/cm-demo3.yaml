@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: testcm2-pod
+spec:
+  containers:
+  - name: testcm2
+    image: busybox
+    command: ["/bin/sh", "-c", "echo $(DB_HOST) $(DB_PORT)"]
+    env:
+    - name: DB_HOST
+      valueFrom:
+        configMapKeyRef:
+          name: cm-demo4
+          key: db.host
+    - name: DB_PORT
+      valueFrom:
+        configMapKeyRef:
+          name: cm-demo4
+          key: db.port

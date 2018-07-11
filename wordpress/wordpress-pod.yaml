@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: wordpress
+  namespace: blog
+spec:
+  containers:
+  - name: wordpress
+    image: wordpress
+    imagePullPolicy: IfNotPresent
+    ports:
+    - containerPort: 80
+      name: wdport
+    env:
+    - name: WORDPRESS_DB_HOST
+      value: localhost:3306
+    - name: WORDPRESS_DB_USER
+      value: wordpress
+    - name: WORDPRESS_DB_PASSWORD
+      value: wordpress
+  - name: mysql
+    image: mysql:5.7
+    imagePullPolicy: IfNotPresent
+    ports:
+    - containerPort: 3306
+      name: dbport
+    env:
+    - name: MYSQL_ROOT_PASSWORD
+      value: rootPassw0rd
+    - name: MYSQL_DATABASE
+      value: wordpress
+    - name: MYSQL_USER
+      value: wordpress
+    - name: MYSQL_PASSWORD
+      value: wordpress
+    volumeMounts:
+    - name: db
+      mountPath: /var/lib/mysql
+  volumes:
+  - name: db
+    hostPath:
+      path: /var/lib/mysql
+   

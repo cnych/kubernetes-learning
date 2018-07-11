@@ -1,0 +1,26 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hook-demo2
+  labels:
+    app: hook
+spec:
+  containers:
+  - name: hook-demo2
+    image: nginx
+    ports:
+    - name: webport
+      containerPort: 80
+    volumeMounts:
+    - name: message
+      mountPath: /usr/share
+    lifecycle:
+      preStop:
+        exec:
+          command: ["/bin/sh", "-c", "echo Hello from the preStop Handler > /usr/share/message"]
+  volumes:
+  - name: message
+    hostPath:
+      path: /tmp
+          

@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: haimaxy-pod
+  labels:
+    app: web
+spec: 
+  containers:
+  - name: frontend
+    image: nginx
+    ports:
+    - containerPort: 80
+
+# Pod example yaml
