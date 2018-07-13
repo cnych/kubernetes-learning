@@ -27,6 +27,7 @@ GitHub地址：[https://github.com/cnych/kubernetes-learning/tree/master/docs](h
 
 * 博客：[阳明的博客](https://blog.qikqiak.com/)
 * 微信群：`k8s`技术圈，扫描我的微信二维码，[阳明](https://blog.qikqiak.com/page/about/)，或直接搜索微信号**iEverything**后拉您入群，请增加备注（姓名-公司/学校/博客/社区/研究所/机构等）。
+* 开发者头条：[k8s技术圈](https://toutiao.io/subjects/268333)
 * 知乎专栏：[k8s技术圈](https://zhuanlan.zhihu.com/kube100)
 * 微信公众号：扫描下面的二维码关注微信公众号`k8s技术圈`
 
