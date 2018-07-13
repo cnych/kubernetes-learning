@@ -1,5 +1,7 @@
 # kubernetes learning —— 从Docker到Kubernetes进阶
 
+## 介绍
+
 [Kubernetes](http://kubernetes.io/)是Google基于Borg开源的容器编排调度引擎，作为[CNCF](http://cncf.io/)（Cloud Native Computing Foundation）最重要的组件之一，它的目标不仅仅是一个编排系统，而是提供一个规范，可以让你来描述集群的架构，定义服务的最终状态，`Kubernetes` 可以帮你将系统自动地达到和维持在这个状态。`Kubernetes` 作为云原生应用的基石，相当于一个云操作系统，其重要性不言而喻。
 
 ![从Docker到Kubernetes进阶](http://sdn.haimaxy.com/covers/2018/4/21/c4082e0f09c746aa848279a2567cffed.png)
@@ -26,9 +28,9 @@ GitHub地址：[https://github.com/cnych/kubernetes-learning/tree/master/docs](h
 ## 社区&读者交流
 
 * 博客：[阳明的博客](https://blog.qikqiak.com/)
-* 微信群：`k8s`技术圈，扫描我的微信二维码，[阳明](https://blog.qikqiak.com/page/about/)，或直接搜索微信号**iEverything**后拉您入群，请增加备注（姓名-公司/学校/博客/社区/研究所/机构等）。
-* 开发者头条：[k8s技术圈](https://toutiao.io/subjects/268333)
+* 微信群：`k8s`技术圈，扫描我的微信二维码，[阳明](https://blog.qikqiak.com/page/about/)，或直接搜索微信号**iEverything**后拉您入群，请增加备注(k8s或kubernetes)
 * 知乎专栏：[k8s技术圈](https://zhuanlan.zhihu.com/kube100)
+* 开发者头条：[k8s技术圈](https://toutiao.io/subjects/268333)
 * 微信公众号：扫描下面的二维码关注微信公众号`k8s技术圈`
 
 ![k8s公众帐号](./docs/images/k8s-qrcode.png)
@@ -37,4 +39,12 @@ GitHub地址：[https://github.com/cnych/kubernetes-learning/tree/master/docs](h
 
 ![优点知识服务号](./docs/images/ydzs-qrcode.png)
 ![优点知识小程序](./docs/images/ydzs-xcx.png)
+
+## 目录
+
+1. 书籍目录：
+TODO，整理中，部分可以通过[docs](https://github.com/cnych/kubernetes-learning/tree/master/docs)目录查看
+
+2. 视频目录：
+![https://www.haimaxy.com/course/6n8xd6/](http://sdn.haimaxy.com/images/2018/4/21/fc741e31cabe4c1486c9bfabf4c4f940.jpg)
 
