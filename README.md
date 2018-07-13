@@ -43,8 +43,10 @@ GitHub地址：[https://github.com/cnych/kubernetes-learning/tree/master/docs](h
 ## 目录
 
 1. 书籍目录：
+
 TODO，整理中，部分可以通过[docs](https://github.com/cnych/kubernetes-learning/tree/master/docs)目录查看
 
 2. 视频目录：
+
 ![https://www.haimaxy.com/course/6n8xd6/](http://sdn.haimaxy.com/images/2018/4/21/fc741e31cabe4c1486c9bfabf4c4f940.jpg)
 
