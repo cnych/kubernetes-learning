@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name:  nfs-pvc-deploy
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels: 
+        app: nfs-pvc
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.7.9
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: web
+          containerPort: 80
+        volumeMounts:
+        - name: www
+          subPath: nginxpvc-test
+          mountPath: /usr/share/nginx/html
+      volumes:
+      - name: www
+        persistentVolumeClaim:
+          claimName: pvc2-nfs
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nfs-pvc
+  labels:
+    app: nfs-pvc-svc
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: web
+  selector:
+    app: nfs-pvc
