@@ -1,0 +1,33 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: nginx-deploy
+  labels:
+    k8s-app: nginx-demo
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.7.9
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  labels:
+    names: nginx-service
+spec:
+  selector:
+    app: nginx
+  ports:
+  - port: 5000
+    targetPort: 80
