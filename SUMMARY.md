@@ -3,6 +3,10 @@
 ### 介绍
 * [序言](README.md)
 
+### kubeadm 搭建集群
+* [使用 kubeadm 搭建集群环境](docs/16.用 kubeadm 搭建集群环境.md)
+* [安装 Dashboard 插件](docs/17.安装 Dashboard 插件.md)
+
 ### 深入理解 Pod
 * [YAML 文件](docs/18.YAML 文件.md)
 * [静态 Pod](docs/19.静态 Pod.md)

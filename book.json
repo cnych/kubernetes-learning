@@ -23,6 +23,7 @@
         "favicon@^0.0.2",
         "tbfed-pagefooter@^0.0.1",
         "theme-default",
+        "sitemap-general",
         "3-ba",
         "ga"
     ],
@@ -50,6 +51,9 @@
             "types": ["star"],
             "size": "small"
         },
+        "sitemap-general": {
+            "prefix": "https://k8s.qikqiak.com"
+        },
         "tbfed-pagefooter": {
             "copyright": "Copyright © qikqiak.com 2018",
             "modify_label": "Updated: ",
@@ -60,7 +64,7 @@
             "bookmark": "favicon.ico"
         },
         "3-ba": {
-            "token": "xxxxxxxx"
+            "token": "98a42f33a08c40eef600d39d605ab818"
         },
         "ga": {
             "token": "UA-69668147-7"
