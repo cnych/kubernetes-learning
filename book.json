@@ -1,0 +1,69 @@
+{
+    "title": "从 Docker 到 Kubernetes 进阶",
+    "description": "从 Docker 入门一步步迁移到 Kubernetes 的进阶课程学习指南",
+    "language": "zh-hans",
+    "author": "阳明",
+    "links": {
+        "sidebar": {
+            "阳明的博客": "https://blog.qikqiak.com",
+            "海马学院": "https://www.haimaxy.com"
+        }
+    },
+    "plugins": [
+        "prism", "prism-themes", "-highlight",
+        "github",
+        "codesnippet",
+        "splitter",
+        "simple-page-toc",
+        "page-toc-button",
+        "image-captions",
+        "back-to-top-button",
+        "-lunr", "-search", "search-plus",
+        "github-buttons@2.1.0",
+        "favicon@^0.0.2",
+        "tbfed-pagefooter@^0.0.1",
+        "theme-default",
+        "3-ba",
+        "ga"
+    ],
+    "pluginsConfig": {
+        "theme-default": {
+            "showLevel": true
+        },
+        "prism": {
+            "css": [
+                "prism-themes/themes/prism-hopscotch.css"
+            ]
+        },
+        "github": {
+            "url": "https://github.com/cnych/kubernetes-learning"
+        },
+        "simple-page-toc": {
+            "maxDepth": 3,
+            "skipFirstH1": true
+        },
+        "image-captions": {
+            "caption": "_CAPTION_"
+        },
+        "github-buttons": {
+            "repo": "cnych/kubernetes-learning",
+            "types": ["star"],
+            "size": "small"
+        },
+        "tbfed-pagefooter": {
+            "copyright": "Copyright © qikqiak.com 2018",
+            "modify_label": "Updated: ",
+            "modify_format": "YYYY-MM-DD HH:mm:ss"
+        },
+        "favicon": {
+            "shortcut": "favicon.ico",
+            "bookmark": "favicon.ico"
+        },
+        "3-ba": {
+            "token": "xxxxxxxx"
+        },
+        "ga": {
+            "token": "UA-69668147-7"
+        }
+    }
+}
