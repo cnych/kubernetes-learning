@@ -1,1 +1,5 @@
 .vscode/
+node_modules/
+book.json
+SUMMARY.md
+_book/*

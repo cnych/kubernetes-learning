@@ -1,5 +1,4 @@
 # 从Docker到Kubernetes进阶
-从 Docker 入门一步步迁移到 Kubernetes 的进阶课程
 
 ## 介绍
 
@@ -34,10 +33,10 @@ GitHub地址：[https://github.com/cnych/kubernetes-learning/tree/master/docs](h
 * 开发者头条：[k8s技术圈](https://toutiao.io/subjects/268333)
 * 微信公众号：扫描下面的二维码关注微信公众号`k8s技术圈`
 
-![k8s公众帐号](./docs/images/k8s-qrcode.png)
+![k8s公众帐号](./images/k8s-qrcode.png)
 
 * 优点知识：[优点知识](https://www.haimaxy.com/)是一个综合的技术学习平台，本书配套的视频教程将会发布在该平台上面，感兴趣的朋友可以扫描下发的二维码关注自己感兴趣的课程。
 
-![优点知识服务号](./docs/images/ydzs-qrcode.png)
-![优点知识小程序](./docs/images/ydzs-xcx.png)
+![优点知识服务号](./images/ydzs-qrcode.png)
+![优点知识小程序](./images/ydzs-xcx.png)
 
