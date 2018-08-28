@@ -1,3 +1,5 @@
 .vscode/
 node_modules/
 _book
+*.pdf
+*.epub

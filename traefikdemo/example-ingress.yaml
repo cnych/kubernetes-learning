@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: example-web-app
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+  - host: example.haimaxy.com
+    http:
+      paths:
+      - path: /s1
+        backend:
+          serviceName: svc1
+          servicePort: 8080
+      - path: /s2
+        backend:
+          serviceName: svc2
+          servicePort: 8080
+      - path: /
+        backend:
+          serviceName: svc3
+          servicePort: 8080
+       
