@@ -38,4 +38,5 @@
 
 ### 服务发现
 * [kubedns](docs/39.kubedns.md)
-* [ingress](docs/40.ingress.md)
+* [ingress 安装配置](docs/40.ingress.md)
+* [ingress tls 和 path 的使用](docs/41.ingress config.md)
