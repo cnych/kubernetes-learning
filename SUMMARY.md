@@ -2,6 +2,10 @@
 
 ### 介绍
 * [序言](README.md)
+* [课程介绍](docs/1.课程介绍.md)
+
+### Docker 基础
+* [Docker 简介](docs/2.Docker 简介.md)
 
 ### kubeadm 搭建集群
 * [使用 kubeadm 搭建集群环境](docs/16.用 kubeadm 搭建集群环境.md)
@@ -40,3 +44,6 @@
 * [kubedns](docs/39.kubedns.md)
 * [ingress 安装配置](docs/40.ingress.md)
 * [ingress tls 和 path 的使用](docs/41.ingress config.md)
+
+### 包管理工具 Helm
+* [Helm 的安装使用](docs/42.Helm安装.md)
