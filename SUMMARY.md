@@ -7,6 +7,9 @@
 ### Docker 基础
 * [Docker 简介](docs/2.Docker 简介.md)
 * [镜像和容器的基本操作](docs/3.镜像和容器的基本操作.md)
+* [Dockerfile 定制镜像](docs/4.Dockerfile 定制镜像.md)
+* [私有镜像仓库](docs/5.私有镜像仓库.md)
+* [数据共享与持久化](docs/6.数据共享与持久化.md)
 
 ### kubeadm 搭建集群
 * [使用 kubeadm 搭建集群环境](docs/16.用 kubeadm 搭建集群环境.md)
@@ -49,3 +52,4 @@
 ### 包管理工具 Helm
 * [Helm 的安装使用](docs/42.Helm安装.md)
 * [Helm 的基本使用](docs/43.Helm基本使用.md)
+* [Helm 模板之内置函数和Values](docs/44.Helm模板之内置函数和Values.md)
