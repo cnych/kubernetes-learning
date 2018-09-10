@@ -11,6 +11,7 @@
 * [私有镜像仓库](docs/5.私有镜像仓库.md)
 * [数据共享与持久化](docs/6.数据共享与持久化.md)
 * [Docker 的网络模式](docs/7.Docker的网络模式.md)
+* [Docker Compose](docs/8.Docker Compose.md)
 
 ### kubeadm 搭建集群
 * [使用 kubeadm 搭建集群环境](docs/16.用 kubeadm 搭建集群环境.md)
