@@ -10,6 +10,7 @@
 * [Dockerfile 定制镜像](docs/4.Dockerfile 定制镜像.md)
 * [私有镜像仓库](docs/5.私有镜像仓库.md)
 * [数据共享与持久化](docs/6.数据共享与持久化.md)
+* [Docker 的网络模式](docs/7.Docker的网络模式.md)
 
 ### kubeadm 搭建集群
 * [使用 kubeadm 搭建集群环境](docs/16.用 kubeadm 搭建集群环境.md)
@@ -53,3 +54,4 @@
 * [Helm 的安装使用](docs/42.Helm安装.md)
 * [Helm 的基本使用](docs/43.Helm基本使用.md)
 * [Helm 模板之内置函数和Values](docs/44.Helm模板之内置函数和Values.md)
+* [Helm 模板之管道与控制结构](docs/45.Helm模板之管道与控制结构.md)
