@@ -64,4 +64,5 @@
 * [Helm 的安装使用](docs/42.Helm安装.md)
 * [Helm 的基本使用](docs/43.Helm基本使用.md)
 * [Helm 模板之内置函数和Values](docs/44.Helm模板之内置函数和Values.md)
-* [Helm 模板之管道与控制结构](docs/45.Helm模板之管道与控制结构.md)
+* [Helm 模板之模板函数与管道](docs/45.Helm模板之模板函数与管道.md)
+* [Helm 模板之控制流程](docs/46.Helm模板之控制流程.md)
