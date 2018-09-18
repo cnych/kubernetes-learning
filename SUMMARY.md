@@ -22,6 +22,10 @@
 * [Docker 的多阶段构建](docs/12.Docker的多阶段构建.md)
 * [Dockerfile 最佳实践](docs/13.Dockerfile最佳实践.md)
 
+### Kubernetes 基础
+* [Kubernetes 初体验](docs/14.Kubernetes初体验.md)
+* [基本概念与组件](docs/15.基本概念与组件.md)
+
 ### kubeadm 搭建集群
 * [使用 kubeadm 搭建集群环境](docs/16.用 kubeadm 搭建集群环境.md)
 * [安装 Dashboard 插件](docs/17.安装 Dashboard 插件.md)
