@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+  labels:
+{{- include "mychart.labels" . | indent 4}}
+data:
+  app: mychart
+  myvalue: {{ .Values.hello | default  "Hello World" | quote }}
+  {{- $releaseName := .Release.Name }}
+  {{- with .Values.course }}
+  k8s: {{ .k8s | upper | quote }}
+  python: {{ .python | repeat 5 | quote }}
+  release: {{ $releaseName }}
+  {{- if eq .python "django" }}
+  web: true
+  {{- end }}
+  {{- end }}
+  courselist:
+  {{- range $index, $course := .Values.courselist }}
+  - {{ $index }}: {{ $course | title | quote }}
+  {{- end }}
+  {{- range $key, $val := .Values.course }}
+  {{ $key }}: {{ $val | upper | quote }}
+  {{- end }}
+{{- include "mychart.labels" . | indent 2 }}
