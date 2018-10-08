@@ -13,13 +13,13 @@ data:
   python: {{ .python | repeat 5 | quote }}
   release: {{ $releaseName }}
   {{- if eq .python "django" }}
-  web: true
+  web: "true"
   {{- end }}
   {{- end }}
-  courselist:
-  {{- range $index, $course := .Values.courselist }}
-  - {{ $index }}: {{ $course | title | quote }}
-  {{- end }}
+  courselist: |
+    {{- range $index, $course := .Values.courselist }}
+    {{ $course | title | quote }}
+    {{- end }}
   {{- range $key, $val := .Values.course }}
   {{ $key }}: {{ $val | upper | quote }}
   {{- end }}
