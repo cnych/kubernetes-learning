@@ -73,3 +73,8 @@
 * [Helm 模板之命名模板](docs/47.Helm模板之命名模板.md)
 * [Helm 模板之其他注意事项](docs/48.Helm模板之其他注意事项.md)
 * [Helm Hooks](docs/49.Helm Hooks.md)
+
+
+### 调度器
+* [Kubernetes 调度器介绍](docs/50.Kubernetes调度策略.md)
+* [Kubernetes 亲和性调度](docs/51.Kubernetes亲和性调度.md)

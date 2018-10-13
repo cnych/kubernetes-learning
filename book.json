@@ -1,12 +1,14 @@
 {
-    "title": "从 Docker 到 Kubernetes 进阶",
+    "title": "从 Docker 到 Kubernetes 进阶手册",
     "description": "从 Docker 入门一步步迁移到 Kubernetes 的进阶课程学习指南",
     "language": "zh-hans",
     "author": "阳明",
     "links": {
         "sidebar": {
-            "阳明的博客": "https://blog.qikqiak.com",
-            "海马学院": "https://www.haimaxy.com"
+            "阳明的博客": "https://qikqiak.com",
+            "优点知识": "https://youdianzhishi.com",
+            "我们一起学istio技术": "https://qikqiak.com/istio-book/",
+            "python微服务实战": "https://qikqiak.com/tdd-book/"
         }
     },
     "plugins": [
@@ -52,7 +54,7 @@
             "size": "small"
         },
         "sitemap-general": {
-            "prefix": "https://k8s.qikqiak.com"
+            "prefix": "https://qikqiak.com/k8s-book/"
         },
         "tbfed-pagefooter": {
             "copyright": "Copyright © qikqiak.com 2018",
