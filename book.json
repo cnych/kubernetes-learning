@@ -5,10 +5,10 @@
     "author": "阳明",
     "links": {
         "sidebar": {
-            "阳明的博客": "https://qikqiak.com",
+            "阳明的博客": "https://www.qikqiak.com",
             "优点知识": "https://youdianzhishi.com",
-            "我们一起学istio技术": "https://qikqiak.com/istio-book/",
-            "python微服务实战": "https://qikqiak.com/tdd-book/"
+            "我们一起学istio技术": "https://www.qikqiak.com/istio-book/",
+            "python微服务实战": "https://www.qikqiak.com/tdd-book/"
         }
     },
     "plugins": [
@@ -54,7 +54,7 @@
             "size": "small"
         },
         "sitemap-general": {
-            "prefix": "https://qikqiak.com/k8s-book/"
+            "prefix": "https://www.qikqiak.com/k8s-book/"
         },
         "tbfed-pagefooter": {
             "copyright": "Copyright © qikqiak.com 2018",
