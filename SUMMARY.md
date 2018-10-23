@@ -78,3 +78,7 @@
 ### 调度器
 * [Kubernetes 调度器介绍](docs/50.Kubernetes调度策略.md)
 * [Kubernetes 亲和性调度](docs/51.Kubernetes亲和性调度.md)
+
+
+### 集群监控
+* [Promethues 介绍](docs/52.Prometheus基本使用.md)

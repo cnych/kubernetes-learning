@@ -1,0 +1,52 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: prometheus
+  namespace: kube-ops
+  labels:
+    app: prometheus
+spec:
+  template:
+    metadata:
+      labels:
+        app: prometheus
+    spec:
+      serviceAccountName: prometheus
+      containers:
+      - image: prom/prometheus:v2.4.3
+        name: prometheus
+        command:
+        - "/bin/prometheus"
+        args:
+        - "--config.file=/etc/prometheus/prometheus.yml"
+        - "--storage.tsdb.path=/prometheus"
+        - "--storage.tsdb.retention=24h"
+        - "--web.enable-admin-api"  # 控制对admin HTTP API的访问，其中包括删除时间序列等功能
+        - "--web.enable-lifecycle"  # 支持热更新，直接执行localhost:9090/-/reload立即生效
+        ports:
+        - containerPort: 9090
+          protocol: TCP
+          name: http
+        volumeMounts:
+        - mountPath: "/prometheus"
+          subPath: prometheus
+          name: data
+        - mountPath: "/etc/prometheus"
+          name: config-volume
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 200m
+            memory: 1Gi
+      securityContext:
+        runAsUser: 0
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: prometheus
+      - configMap:
+          name: prometheus-config
+        name: config-volume
+

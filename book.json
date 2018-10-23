@@ -27,7 +27,8 @@
         "theme-default",
         "sitemap-general",
         "3-ba",
-        "ga"
+        "ga",
+        "adsense"
     ],
     "pluginsConfig": {
         "theme-default": {
@@ -70,6 +71,13 @@
         },
         "ga": {
             "token": "UA-69668147-3"
+        },
+        "adsense": {
+            "client": "ca-pub-5376999672787220",
+            "slot": "3100272140",
+            "format": "auto",
+            "element": ".page-inner section",
+            "position": "bottom"
         }
     }
 }

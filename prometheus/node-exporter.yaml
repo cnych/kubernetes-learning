@@ -1,0 +1,43 @@
+---
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: node-exporter
+  namespace: kube-ops
+  labels:
+    app: node-exporter
+spec:
+  template:
+    metadata:
+      labels:
+        app: node-exporter
+    spec:
+      containers:
+      - image: prom/node-exporter:v0.16.0
+        name: node-exporter
+        ports:
+        - containerPort: 9100
+          protocol: TCP
+          name: http
+      tolerations:
+      - key: "node-role.kubernetes.io/master"
+        operator: "Exists"
+        effect: "NoSchedule"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: node-exporter
+  name: node-exporter
+  namespace: kube-ops
+spec:
+  ports:
+  - name: http
+    port: 9100
+    nodePort: 31009
+    protocol: TCP
+  type: NodePort
+  selector:
+    app: node-exporter
