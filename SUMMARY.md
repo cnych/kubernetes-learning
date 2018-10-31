@@ -81,4 +81,6 @@
 
 
 ### 集群监控
-* [Promethues 介绍](docs/52.Prometheus基本使用.md)
+* [手动安装 Prometheus](docs/52.Prometheus基本使用.md)
+* [监控 Kubernetes 集群应用](docs/53.监控Kubernetes集群应用.md)
+* [监控 Kubernetes 集群节点](docs/54.监控Kubernetes集群节点.md)
