@@ -12,3 +12,32 @@ data:
       - job_name: prometheus
         static_configs:
           - targets: ['localhost:9090']
+      - job_name: traefik
+        static_configs:
+          - targets: ['traefik-ingress-service.kube-system.svc.cluster.local:8080']
+      - job_name: redis
+        static_configs:
+          - targets: ['redis:9121']
+      - job_name: kubernetes-node-exporter
+        kubernetes_sd_configs:
+        - role: node
+        relabel_configs:
+        - source_labels: [__address__]
+          regex: '(.*):10250'
+          replacement: '${1}:9100'
+          target_label: __address__
+          action: replace
+        - action: labelmap
+          regex: __meta_kubernetes_node_label_(.+)
+      - job_name: kubernetes-kubelet
+        kubernetes_sd_configs:
+        - role: node
+        relabel_configs:
+        - source_labels: [__address__]
+          regex: '(.*):10250'
+          replacement: '${1}:10255'
+          target_label: __address__
+          action: replace
+        - action: labelmap
+          regex: __meta_kubernetes_node_label_(.+)
+          

@@ -84,3 +84,4 @@
 * [手动安装 Prometheus](docs/52.Prometheus基本使用.md)
 * [监控 Kubernetes 集群应用](docs/53.监控Kubernetes集群应用.md)
 * [监控 Kubernetes 集群节点](docs/54.监控Kubernetes集群节点.md)
+* [监控 Kubernetes 常用资源对象](docs/55.监控Kubernetes常用资源对象.md)
