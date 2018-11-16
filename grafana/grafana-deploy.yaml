@@ -14,11 +14,9 @@ spec:
     spec:
       containers:
       - name: grafana
-        image: grafana/grafana:5.3.1
+        image: grafana/grafana:5.3.4
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 80
-          name: service
         - containerPort: 3000
           name: grafana
         env:
@@ -48,16 +46,23 @@ spec:
         resources:
           limits:
             cpu: 100m
-            memory: 128Mi
+            memory: 256Mi
           requests:
             cpu: 100m
-            memory: 128Mi
+            memory: 256Mi
         volumeMounts:
         - mountPath: /var/lib/grafana
+          subPath: grafana
           name: storage
+        - mountPath: "/etc/grafana"
+          name: config
       securityContext:
         fsGroup: 472
         runAsUser: 472
       volumes:
-      - emptyDir: {}
-        name: storage
+      - name: storage
+        persistentVolumeClaim:
+          claimName: grafana
+      - name: config
+        configMap:
+          name: grafana-config
