@@ -256,9 +256,9 @@ metadata:
 ......
 ```
 
-有的同学可能已经发现了，我们这个地方的应用是依赖于 mysql 的，那么为什么我们只是把 wordpress 相关的数据来做了定制呢？当然我们也可以在我们的这个 chart 中来定制 mysql，但是这却不是最好的方法，最好的方法是让我们去依赖一个独立的 mysql chart，这样可以将 wordpress 和 mysql 之间的耦合关系降低，后面我们再和大家来看看怎样解耦。
+有的同学可能已经发现了，我们这个地方的应用是依赖于 mysql 的，那么为什么我们只是把 wordpress 相关的数据来做了定制呢？当然我们也可以在我们的这个 chart 中来定制 mysql，但是这却不是最好的方法，最好的方法是让我们去依赖一个独立的 mysql chart，这样可以将 wordpress 和 mysql 之间的耦合关系降低，后面我们再和大家来看看怎样解耦。
 
-为了不影响对 wordpress 的操作，我们可以临时将 templates 目录下面的 mysql 的资源对象单独提取出来，比如我们这里统一放到一个叫 mysql.yaml 的资源文件中，现在我们的结构就是这样的了：
+为了不影响对 wordpress 的操作，我们可以临时将 templates 目录下面的 mysql 的资源对象单独提取出来，比如我们这里统一放到一个叫 mysql.yaml 的资源文件中，现在我们的结构就是这样的了：
 ```shell
 $ tree .
 .
@@ -275,7 +275,7 @@ $ tree .
 ```
 
 ### 镜像
-现在我们使用的镜像还是固定的`wordpress:latest`，为了方便其他人使用，我们在编写 chart 包的时候会提供一个定制参数值，可以自由指定使用的镜像，包括 tag 版本。我们可以先去添加 values.yaml 文件中的内容：
+现在我们使用的镜像还是固定的`wordpress:latest`，为了方便其他人使用，我们在编写 chart 包的时候会提供一个定制参数值，可以自由指定使用的镜像，包括 tag 版本。我们可以先去添加 values.yaml 文件中的内容：
 ```yaml
 nameOverride: ""
 fullnameOverride: ""
@@ -299,7 +299,7 @@ image:
   #   - myRegistrKeySecretName
 ```
 
-我们在 values.yaml 文件中添加了一个 image 的对象，里面包含仓库地址、镜像名称、镜像版本，这是因为一个标准的镜像就包含这3个部分，每一个部分都是可能被定制的，然后指定一个镜像拉取策略的参数 imagePullPolicy，还不算完，为什么呢？如果我们要使用的镜像是一个私有仓库的镜像怎么办？所以我们这里还预留了一个参数：pullSecrets，用来指定私有仓库地址的 Secrets，现在我们再去修改 templates/deployment.yaml 文件就简单很多了：
+我们在 values.yaml 文件中添加了一个 image 的对象，里面包含仓库地址、镜像名称、镜像版本，这是因为一个标准的镜像就包含这3个部分，每一个部分都是可能被定制的，然后指定一个镜像拉取策略的参数 imagePullPolicy，还不算完，为什么呢？如果我们要使用的镜像是一个私有仓库的镜像怎么办？所以我们这里还预留了一个参数：pullSecrets，用来指定私有仓库地址的 Secrets，现在我们再去修改 templates/deployment.yaml 文件就简单很多了：
 ```yaml
 apiVersion: apps/v1beta1
 kind: Deployment
@@ -340,7 +340,7 @@ spec:
 ......
 ```
 
-我们首先判断是否存在值`pullSecrets`，如果存在，则将 Secrets 循环渲染出来，然后是容器的名称还是使用命名模板 wordpress.fullname 的定义，然后就是 image 的地址以及 imagePullPolicy，这样我们就完成了对镜像的定制，默认的值直接写入到 values.yaml 文件中，现在我们使用 debug 命令查看下模板渲染的结果：
+我们首先判断是否存在值`pullSecrets`，如果存在，则将 Secrets 循环渲染出来，然后是容器的名称还是使用命名模板 wordpress.fullname 的定义，然后就是 image 的地址以及 imagePullPolicy，这样我们就完成了对镜像的定制，默认的值直接写入到 values.yaml 文件中，现在我们使用 debug 命令查看下模板渲染的结果：
 ```yaml
 helm install --dry-run --debug .
 [debug] Created tunnel using local port: '46735'
@@ -382,7 +382,7 @@ spec:
 ......
 ```
 
-假如现在我们的镜像地址是 youdianzhishi.com/wordpress:4.9，那么我们在安装的就可以覆盖 image 对象中的相关参数了：
+假如现在我们的镜像地址是 youdianzhishi.com/wordpress:4.9，那么我们在安装的就可以覆盖 image 对象中的相关参数了：
 ```yaml
 $ helm install --dry-run --debug --set image.registry=youdianzhishi.com --set image.tag=4.9 .
 [debug] Created tunnel using local port: '36449'
@@ -423,11 +423,11 @@ spec:
 ......
 ```
 
-我们可以看到镜像地址是不是就被替换了，当然如果你需要覆盖的值比较多，最好还是通过指定一个 yaml 文件来覆盖默认的这些 values 值。
+我们可以看到镜像地址是不是就被替换了，当然如果你需要覆盖的值比较多，最好还是通过指定一个 yaml 文件来覆盖默认的这些 values 值。
 
 
 ### 健康检查、资源限制
-按照我们前面的资源文件声明，接下来我们就应该定制健康检查部分和资源限制部分，同样还是先添加模板值：（values.yaml）
+按照我们前面的资源文件声明，接下来我们就应该定制健康检查部分和资源限制部分，同样还是先添加模板值：（values.yaml）
 ```yaml
 ......
 ## liveness 和 readliness probes 配置
@@ -446,7 +446,7 @@ readinessProbe:
   successThreshold: 1
 ```
 
-我们在 values.yaml 文件中添加了 livenessProbe 和 readinessProbe 这两个对象，里面都是健康检测的相关属性，然后我们需要将这些值都嵌入到模板中去，按照以前的方法我们是不是一个属性一个属性的添加，但是这样太麻烦了，我们可以用一个函数`toYaml`将这两个对象中的属性一次性全部输出到模板中去：
+我们在 values.yaml 文件中添加了 livenessProbe 和 readinessProbe 这两个对象，里面都是健康检测的相关属性，然后我们需要将这些值都嵌入到模板中去，按照以前的方法我们是不是一个属性一个属性的添加，但是这样太麻烦了，我们可以用一个函数`toYaml`将这两个对象中的属性一次性全部输出到模板中去：
 ```yaml
 containers:
 - name: {{ template "wordpress.fullname" . }}
@@ -498,7 +498,7 @@ helm install --dry-run --debug .
 ......
 ```
 
-可以看到符合我们的渲染结果的。然后就是我们的 resource 资源部分，因为并不是所有的应用资源消耗情况都是一样的，还需要结合自己的集群去进行定制
+可以看到符合我们的渲染结果的。然后就是我们的 resource 资源部分，因为并不是所有的应用资源消耗情况都是一样的，还需要结合自己的集群去进行定制
 
 ```yaml
 ## Configure resource requests and limits

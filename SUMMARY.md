@@ -86,3 +86,5 @@
 * [监控 Kubernetes 集群节点](docs/54.监控Kubernetes集群节点.md)
 * [监控 Kubernetes 常用资源对象](docs/55.监控Kubernetes常用资源对象.md)
 * [Grafana 的安装使用](docs/56.Grafana的安装使用.md)
+* [AlertManager 的使用](docs/57.AlertManager的使用.md)
+* [Prometheus Operator 的安装](docs/58.Prometheus Operator.md)
