@@ -3,6 +3,7 @@ apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: nginx-deploy
+  namespace: test
   labels:
     app: nginx-demo
 spec:

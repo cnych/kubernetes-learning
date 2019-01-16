@@ -88,3 +88,9 @@
 * [Grafana 的安装使用](docs/56.Grafana的安装使用.md)
 * [AlertManager 的使用](docs/57.AlertManager的使用.md)
 * [Prometheus Operator 的安装](docs/58.Prometheus Operator.md)
+* [自定义Prometheus Operator 监控项](docs/59.自定义Prometheus Operator 监控项.md)
+* [Prometheus Operator高级配置](docs/60.Prometheus Operator高级配置.md)
+
+
+### 日志收集
+* [日志收集架构](docs/61.日志收集架构.md)
