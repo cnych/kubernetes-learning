@@ -54,11 +54,6 @@
 * [PVC](docs/34.PVC.md)
 * [StorageClass](docs/35.StorageClass.md)
 
-### CI/CD:
-* [动态 Jenkins Slave](docs/36.Jenkins Slave.md)
-* [Jenkins Pipeline 部署 Kubernetes 应用](docs/37.Jenkins Pipeline.md)
-* [Jenkins BlueOcean](docs/38.Jenkins BlueOcean.md)
-
 ### 服务发现
 * [kubedns](docs/39.kubedns.md)
 * [ingress 安装配置](docs/40.ingress.md)
@@ -95,3 +90,10 @@
 ### 日志收集
 * [日志收集架构](docs/61.日志收集架构.md)
 * [搭建 EFK 日志系统](docs/62.搭建 EFK 日志系统.md)
+
+
+### CI/CD:
+* [动态 Jenkins Slave](docs/36.Jenkins Slave.md)
+* [Jenkins Pipeline 部署 Kubernetes 应用](docs/37.Jenkins Pipeline.md)
+* [Jenkins BlueOcean](docs/38.Jenkins BlueOcean.md)
+* [Harbor](docs/63.Harbor.md)
