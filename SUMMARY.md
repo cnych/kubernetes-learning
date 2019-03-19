@@ -97,3 +97,4 @@
 * [Jenkins Pipeline 部署 Kubernetes 应用](docs/37.Jenkins Pipeline.md)
 * [Jenkins BlueOcean](docs/38.Jenkins BlueOcean.md)
 * [Harbor](docs/63.Harbor.md)
+* [Gitlab](docs/64.Gitlab.md)

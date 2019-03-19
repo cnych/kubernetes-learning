@@ -22,20 +22,20 @@
 
 GitHub地址：[https://github.com/cnych/kubernetes-learning/tree/master/docs](https://github.com/cnych/kubernetes-learning/)
 
-视频课程在线地址：[https://www.haimaxy.com/course/6n8xd6/](https://www.haimaxy.com/course/6n8xd6/)
+视频课程在线地址：[https://youdianzhishi.com/course/6n8xd6/](https://youdianzhishi.com/course/6n8xd6/)
 
 
 ## 社区&读者交流
 
-* 博客：[阳明的博客](https://blog.qikqiak.com/)
-* 微信群：`k8s`技术圈，扫描我的微信二维码，[阳明](https://blog.qikqiak.com/page/about/)，或直接搜索微信号**iEverything**后拉您入群，请增加备注(k8s或kubernetes)
+* 博客：[阳明的博客](https://www.qikqiak.com/)
+* 微信群：`k8s`技术圈，扫描我的微信二维码，[阳明](https://www.qikqiak.com/page/about/)，或直接搜索微信号**iEverything**后拉您入群，请增加备注(k8s或kubernetes)
 * 知乎专栏：[k8s技术圈](https://zhuanlan.zhihu.com/kube100)
 * 开发者头条：[k8s技术圈](https://toutiao.io/subjects/268333)
 * 微信公众号：扫描下面的二维码关注微信公众号`k8s技术圈`
 
 ![k8s公众帐号](./images/k8s-qrcode.png)
 
-* 优点知识：[优点知识](https://www.haimaxy.com/)是一个综合的技术学习平台，本书配套的视频教程将会发布在该平台上面，感兴趣的朋友可以扫描下发的二维码关注自己感兴趣的课程。
+* 优点知识：[优点知识](https://youdianzhishi.com/)是一个综合的技术学习平台，本书配套的视频教程将会发布在该平台上面，感兴趣的朋友可以扫描下发的二维码关注自己感兴趣的课程。
 
 ![优点知识服务号](./images/ydzs-qrcode.png)
 ![优点知识小程序](./images/ydzs-xcx.png)
