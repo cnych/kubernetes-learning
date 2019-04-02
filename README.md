@@ -1,7 +1,7 @@
 # 从Docker到Kubernetes进阶
 从 Docker 入门一步步迁移到 Kubernetes 的进阶课程
 
-在线浏览：[https://qikqiak.com/k8s-book](https://qikqiak.com/k8s-book/)
+在线浏览：[https://www.qikqiak.com/k8s-book](https://www.qikqiak.com/k8s-book/)
 
 GitHub地址：[https://github.com/cnych/kubernetes-learning/](https://github.com/cnych/kubernetes-learning/)
 

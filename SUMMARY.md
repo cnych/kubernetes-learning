@@ -98,3 +98,5 @@
 * [Jenkins BlueOcean](docs/38.Jenkins BlueOcean.md)
 * [Harbor](docs/63.Harbor.md)
 * [Gitlab](docs/64.Gitlab.md)
+* [Gitlab CI](docs/65.Gitlab CI.md)
+
