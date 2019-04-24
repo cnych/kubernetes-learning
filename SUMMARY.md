@@ -99,4 +99,5 @@
 * [Harbor](docs/63.Harbor.md)
 * [Gitlab](docs/64.Gitlab.md)
 * [Gitlab CI](docs/65.Gitlab CI.md)
+* [Devops](docs/66/devops.md)
 
