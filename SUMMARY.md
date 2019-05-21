@@ -101,3 +101,6 @@
 * [Gitlab CI](docs/65.Gitlab CI.md)
 * [Devops](docs/66.devops.md)
 
+
+### 其他:
+* [集群升级](docs/67.Upgrade集群.md)
