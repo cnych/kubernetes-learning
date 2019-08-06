@@ -12,4 +12,7 @@ spec:
   ports:
   - name: web
     port: 9090
-    targetPort: http
+    targetPort: 9090
+  - name: alert
+    port: 9093
+    targetPort: 9093
