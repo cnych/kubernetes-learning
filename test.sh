@@ -1,1 +1,0 @@
-while true; do wget -q -O- http://k8s.haimaxy.com:31306; done
