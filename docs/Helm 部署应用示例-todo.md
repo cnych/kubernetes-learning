@@ -119,7 +119,7 @@ Create chart name and version as used by the chart label.
 
 所以现在我们将 templates 目录下面的 deployment.yaml 和 service.yaml 文件中关于 wordpress 的 name 替换成命名模板：
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ template "wordpress.fullname" . }}
@@ -162,14 +162,14 @@ metadata:
 ......
 ---
 # Source: wordpress/templates/deployment.yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql-deploy
 ......
 ---
 # Source: wordpress/templates/deployment.yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: old-fox-wordpress
@@ -194,7 +194,7 @@ metadata:
 ......
 ---
 # Source: wordpress/templates/deployment.yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mywordpress
@@ -205,7 +205,7 @@ metadata:
 
 可以看到资源名称被我们指定的值覆盖了，一般情况下面我们还会为我们的资源添加上合适的 labels 标签，比如我们这里可以给 wordpress 的 Deployment 和 Service 都添加上下面的 labels 标签：
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ template "wordpress.fullname" . }}
@@ -245,7 +245,7 @@ metadata:
 ......
 ---
 # Source: wordpress/templates/deployment.yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: youngling-clam-wordpress
@@ -301,7 +301,7 @@ image:
 
 我们在 values.yaml 文件中添加了一个 image 的对象，里面包含仓库地址、镜像名称、镜像版本，这是因为一个标准的镜像就包含这3个部分，每一个部分都是可能被定制的，然后指定一个镜像拉取策略的参数 imagePullPolicy，还不算完，为什么呢？如果我们要使用的镜像是一个私有仓库的镜像怎么办？所以我们这里还预留了一个参数：pullSecrets，用来指定私有仓库地址的 Secrets，现在我们再去修改 templates/deployment.yaml 文件就简单很多了：
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ template "wordpress.fullname" . }}
@@ -315,6 +315,11 @@ spec:
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+      chart: {{ template "wordpress.chart" . }}
+      release: {{ .Release.Name }}
   template:
     metadata:
       labels:
@@ -349,7 +354,7 @@ helm install --dry-run --debug .
 
 ---
 # Source: wordpress/templates/deployment.yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: eponymous-narwhal-wordpress
@@ -363,6 +368,11 @@ spec:
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: wordpress
+      chart: wordpress-0.1.0
+      release: eponymous-narwhal
   template:
     metadata:
       labels:
@@ -390,7 +400,7 @@ $ helm install --dry-run --debug --set image.registry=youdianzhishi.com --set im
 ......
 
 # Source: wordpress/templates/deployment.yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: peddling-prawn-wordpress
@@ -404,6 +414,11 @@ spec:
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: wordpress
+        chart: wordpress-0.1.0
+        release: peddling-prawn
   template:
     metadata:
       labels:

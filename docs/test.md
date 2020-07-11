@@ -23,12 +23,15 @@ EOF
 ```shell
 $ mkdir ./templates
 $ cat <<'EOF' > ./templates/deployment.yaml
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-world
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world
   template:
     metadata:
       labels:
@@ -76,12 +79,15 @@ EOF
 现在我们就可以通过模板中的`.Values`对象来访问`values.yaml`文件提供的值。比如我们将上面的`templates/deployment.yaml`文件中的`image`镜像地址通过`values.yaml`中的`image`对象来替换掉：
 ```shell
 $ cat <<'EOF' > ./templates/deployment.yaml
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-world
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world
   template:
     metadata:
       labels:
@@ -139,12 +145,15 @@ spec:
     app: hello-world
 ---
 # Source: hello-world/templates/deployment.yaml
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-world
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world
   template:
     metadata:
       labels:
@@ -173,7 +182,7 @@ spec:
 现在我们来使用预定义的值给上面的资源文件定义一些标签，让我们可以很方便的识别出资源：
 ```shell
 $ cat <<'EOF' > ./templates/deployment.yaml
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ printf "%s-%s" .Release.Name .Chart.Name | trunc 63 }}
@@ -183,6 +192,11 @@ metadata:
     release: {{ .Release.Name }}
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: {{ printf "%s-%s" .Release.Name .Chart.Name | trunc 63 }}
+      version: {{ .Chart.Version }}
+      release: {{ .Release.Name }}
   template:
     metadata:
       labels:
@@ -264,7 +278,7 @@ EOF
 
 ```shell
 $ cat <<'EOF' > ./templates/deployment.yaml
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ template "hello-world.full_name" . }}
@@ -272,6 +286,9 @@ metadata:
     {{- include "hello-world.release_labels" . | indent 4 }}
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      {{- include "hello-world.release_labels" . | indent 6 }}
   template:
     metadata:
       labels:
